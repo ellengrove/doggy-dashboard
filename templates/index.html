@@ -22,6 +22,68 @@
 </head>
 <body>
 
+  <nav class="navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+    <div class="container-fluid">
+      <a class="navbar-text" href="map.html">Click here to Meet the Dog World!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+              <h1>Doggy Dashboard</h1>
+              <p>Select a dog breed to better understand their background!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="well">
+                <h5>Dog Breed</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 text-center">
+                <h5>Image Here</h5>
+                <div id = "img">
+                  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <h5>graph Here</h5>
+                <div id="avg-heigth">
+                  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+                </div>
+              </div>
+              <div class="col-lg-4 text-center">
+                <h5>graph Here</h5>
+                <div id="life-expec">
+                  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h5>Personality Here</h5>
+                <div id = "personality">
+                  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <h5>Avg weight Here</h5>
+                <div id="avg-weight">
+                  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
+                </div>
+              </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Leaflet js -- might not need to be in 'index.html' file if we have separate web page for leaflet map -->
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
