@@ -2,13 +2,18 @@ body {
     background-repeat: 3rem;
     padding-bottom: 3rem;
     color: #1A2238;
-    background-color:#1A2238
+    background-color:#82a88f;
+  }
+
+  .navbar-text {
+    color:#E1E2E2;
   }
 
   .navbar {
-    background-color: #FFA07A;
+    background-color: #4879c6;
     margin-bottom: 20px;
     max-height: 100px;
+    margin: 0;
   }
    .navbar-brand {
     color:#E1E2E2;
@@ -16,6 +21,26 @@ body {
     padding: inherit;
     font-size: large;
   }
+
+.DogHero {
+  background-image: url('https://img1.10bestmedia.com/Images/Photos/379272/GettyImages-104489865_54_990x660.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  margin: 0;
+  padding: 0;
+}
+
+/* .grass {
+  background-image: url('https://media.istockphoto.com/photos/beautiful-green-grass-pattern-from-golf-course-picture-id535983237?k=20&m=535983237&s=612x612&w=0&h=T3F1O_AY3a300vdZwO_IvdUOedRDN2QfY5nG67JLWgQ=');
+  background-attachment: fixed;
+  /* background-position: center; */
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+
+
   p {
     color:#E1E2E2;
     font-weight: bolder;
@@ -30,11 +55,16 @@ body {
     font-weight: bolder;
     padding-top: 10px;
   }
+  h3 {
+    color:#E1E2E2;
+    font-weight: bolder;
+    padding-top: 10px;
+  }
 
 
 @media(max-width: 992px) {
     .navbar-expand-lg {
-    background-color:#F4DB7D;
+    background-color:##4879c6;
     }
     .navbar {
       max-height: none;
@@ -42,7 +72,7 @@ body {
     }
     .navbar div {
       margin: inherit;
-      background-color: #F4DB7D;
+      background-color: ##4879c6;
     }
     .navbar-brand {
       padding: 10px;
