@@ -1,6 +1,6 @@
 function createMap(markers) {
 
-    var map = L.map('map').setView([51.505, -0.09], 3);
+    var map = L.map('map').setView([30.505, -0.09], 3);
 
     var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
         maxZoom: 19,
