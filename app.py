@@ -60,22 +60,29 @@ def dog_data():
 
     session.close()
 
+    def catchNulls(variable):
+        if variable is not None:
+            result = json.dumps(Decimal(variable), use_decimal=True)
+        else:
+            result = variable
+        return result
+
     # Create a dictionary from the row data and append to a list of all_passengers
     all_dogs = []
     for name, breed_group, avg_height, avg_weight, avg_life, temperament, weight_lower, weight_upper, height_lower, height_upper, life_span_lower, life_span_upper  in results:
         doggy_dict = {}
         doggy_dict["name"] = name
         doggy_dict["breed_group"] = breed_group
-        doggy_dict["avg_height"] = json.dumps(Decimal(avg_height), use_decimal=True)
-        doggy_dict["avg_weight"] = json.dumps(Decimal(avg_weight), use_decimal=True)
-        doggy_dict["avg_life"] = json.dumps(Decimal(avg_life), use_decimal=True)
+        doggy_dict["avg_height"] = catchNulls(avg_height)
+        doggy_dict["avg_weight"] = catchNulls(avg_weight)
+        doggy_dict["avg_life"] = catchNulls(avg_life)
         doggy_dict["temperament"] = temperament
-        doggy_dict["weight_lower"] = json.dumps(Decimal(weight_lower), use_decimal=True)
-        doggy_dict["weight_upper"] =  json.dumps(Decimal(weight_upper), use_decimal=True)
-        doggy_dict["height_lower"] =  json.dumps(Decimal(height_lower), use_decimal=True)
-        doggy_dict["height_upper"] = json.dumps(Decimal(height_upper), use_decimal=True)
-        doggy_dict["life_span_lower"] = json.dumps(Decimal(life_span_lower), use_decimal=True)
-        doggy_dict["life_span_upper"] = json.dumps(Decimal(life_span_upper), use_decimal=True)
+        doggy_dict["weight_lower"] = catchNulls(weight_lower)
+        doggy_dict["weight_upper"] =  catchNulls(weight_upper)
+        doggy_dict["height_lower"] =  catchNulls(height_lower)
+        doggy_dict["height_upper"] = catchNulls(height_upper)
+        doggy_dict["life_span_lower"] = catchNulls(life_span_lower)
+        doggy_dict["life_span_upper"] = catchNulls(life_span_upper)
         all_dogs.append(doggy_dict)
 
     return jsonify(all_dogs)
@@ -85,17 +92,26 @@ def map_data():
     
     session = Session(engine)
 
-    results = session.query(Breeds.lat, Breeds.lng, Breeds.name, Breeds.origin)
+    results = session.query(Breeds.lat, Breeds.lng, Breeds.name, Breeds.origin, Doggy.image_url).filter(Doggy.id_doggy == Breeds.id_doggy)
+
 
     session.close()
 
+    def catchNulls(variable):
+        if variable is not None:
+            result = json.dumps(Decimal(variable), use_decimal=True)
+        else:
+            result = variable
+        return result
+
     all_breeds = []
-    for lat_unadj, lng_unadj, name, origin in results:
+    for lat, lng, name, origin, image_url in results:
         breed_dict = {}
-        breed_dict["lat"] = json.dumps(Decimal(lat), use_decimal=True)
-        breed_dict["lng"] = json.dumps(Decimal(lng), use_decimal=True)
+        breed_dict["lat"] = catchNulls(lat)
+        breed_dict["lng"] = catchNulls(lng)
         breed_dict["name"] = name
         breed_dict["origin"] = origin
+        breed_dict["image_url"] = image_url
         ## also need the image url from the Doggy table
         all_breeds.append(breed_dict)
 
