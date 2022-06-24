@@ -38,11 +38,11 @@ function createMap(markers) {
 }
 
 
-d3.csv("../data/breed_origins.csv").then(function (response) {
+d3.csv("../static/data/breed_origins.csv").then(function (response) {
     console.log(response)
 
     var pawIcon = L.icon({
-        iconUrl: 'js/paw-print-clip-art.png',
+        iconUrl: '../static/js/paw-print-clip-art.png',
         iconSize:     [30, 30], // size of the icon
         iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
