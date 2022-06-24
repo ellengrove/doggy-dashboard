@@ -29,6 +29,6 @@ FOREIGN KEY (id) REFERENCES doggy_info(id));
 
 
 
-SELECT * FROM doggy_info
+SELECT * FROM doggy_info;
 
 SELECT * FROM origins;
