@@ -38,7 +38,7 @@ function createMap(markers) {
 }
 
 
-d3.csv("../static/data/breed_origins.csv").then(function (response) {
+d3.json("/api/top_breeds").then(function (response) {
     console.log(response)
 
     var pawIcon = L.icon({

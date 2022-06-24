@@ -4,8 +4,12 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from config import protocol, username, password, host, port
 from flask import Flask, jsonify, render_template  
-import json 
+import simplejson as json
+from decimal import Decimal
 
+
+# json.dumps(Decimal('3.9'), use_decimal=True)
+# print(s)
 
 #################################################
 # Database Setup
@@ -15,17 +19,19 @@ database_name = 'doggy_db'
 
 dog_connection_string = f'{protocol}://{username}:{password}@{host}:{port}/{database_name}'
 
-engine = create_engine(rds_connection_string)
+engine = create_engine(dog_connection_string)
 
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
 Base.prepare(engine, reflect=True)
-
+# print(Base.classes.keys())
 # Save reference to the table
 Doggy = Base.classes.doggy_info
 
 Breeds = Base.classes.origins
+
+
 
 ## can you create two base classes for two seperate tables?
 ## can you pull two seperate tables for one app.route?
@@ -39,12 +45,12 @@ app = Flask(__name__)
 
 ## Create routes for the different data needed
 @app.route("/")
-def welcome();
+def welcome():
     """List API routes"""
     return render_template('index.html')
 
-@app.route(____)
-def dog_data('____________');
+@app.route('/api/doggy_dash')
+def dog_data():
 
     session = Session(engine)
 
@@ -56,26 +62,26 @@ def dog_data('____________');
 
     # Create a dictionary from the row data and append to a list of all_passengers
     all_dogs = []
-    for name, breed_group, avg_height, avg_weight, avg_life in results:
+    for name, breed_group, avg_height, avg_weight, avg_life, temperament, weight_lower, weight_upper, height_lower, height_upper, life_span_lower, life_span_upper  in results:
         doggy_dict = {}
         doggy_dict["name"] = name
         doggy_dict["breed_group"] = breed_group
-        doggy_dict["avg_height"] = avg_height
-        doggy_dict["avg_weight"] = avg_weight
-        doggy_dict["avg_life"] = avg_life
+        doggy_dict["avg_height"] = json.dumps(Decimal(avg_height), use_decimal=True)
+        doggy_dict["avg_weight"] = json.dumps(Decimal(avg_weight), use_decimal=True)
+        doggy_dict["avg_life"] = json.dumps(Decimal(avg_life), use_decimal=True)
         doggy_dict["temperament"] = temperament
-        doggy_dict["weight_lower"] = weight_lower
-        doggy_dict["weight_lower"] = weight_lower
-        doggy_dict["height_lower"] = height_lower
-        doggy_dict["height_upper"] = height_upper
-        doggy_dict["life_span_lower"] = life_span_lower
-        doggy_dict["life_span_upper"] = life_span_upper
+        doggy_dict["weight_lower"] = json.dumps(Decimal(weight_lower), use_decimal=True)
+        doggy_dict["weight_upper"] =  json.dumps(Decimal(weight_upper), use_decimal=True)
+        doggy_dict["height_lower"] =  json.dumps(Decimal(height_lower), use_decimal=True)
+        doggy_dict["height_upper"] = json.dumps(Decimal(height_upper), use_decimal=True)
+        doggy_dict["life_span_lower"] = json.dumps(Decimal(life_span_lower), use_decimal=True)
+        doggy_dict["life_span_upper"] = json.dumps(Decimal(life_span_upper), use_decimal=True)
         all_dogs.append(doggy_dict)
 
     return jsonify(all_dogs)
 
-@app.route("../data/top_dogs.json")
-def ports();
+@app.route("/api/top_breeds")
+def map_data():
     
     session = Session(engine)
 
@@ -84,11 +90,11 @@ def ports();
     session.close()
 
     all_breeds = []
-    for lat, lng, name, origin in results:
+    for lat_unadj, lng_unadj, name, origin in results:
         breed_dict = {}
-        breed_dict["lat"] = lat
-        breed_dict["lng"] = lng
-        breed_dcit["name"] = name
+        breed_dict["lat"] = json.dumps(Decimal(lat), use_decimal=True)
+        breed_dict["lng"] = json.dumps(Decimal(lng), use_decimal=True)
+        breed_dict["name"] = name
         breed_dict["origin"] = origin
         ## also need the image url from the Doggy table
         all_breeds.append(breed_dict)
