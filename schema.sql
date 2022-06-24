@@ -16,7 +16,7 @@ avg_weight DEC,
 avg_life DEC);
 
 CREATE TABLE origins (
-row_index INT,
+row_index INT PRIMARY KEY,
 breed_rank VARCHAR,
 origin VARCHAR,
 lat_unadj DEC,
