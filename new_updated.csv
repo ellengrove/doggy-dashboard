@@ -1,4 +1,4 @@
-id,breed_group,name,weight_lower,weight_upper,image_url,height_lower,height_upper,bred_for,temperament,life_span_lower,life_span_upper,avg_height,avg_weight,avg_life
+id_doggy,breed_group,name,weight_lower,weight_upper,image_url,height_lower,height_upper,bred_for,temperament,life_span_lower,life_span_upper,avg_height,avg_weight,avg_life
 1,Toy,Affenpinscher,6,13,https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg,9,11.5,"Small rodent hunting, lapdog","Stubborn, Curious, Playful, Adventurous, Active, Fun-loving",10,12,10.25,9.5,11
 2,Hound,Afghan Hound,50,60,https://cdn2.thedogapi.com/images/hMyT4CDXR.jpg,25,27,Coursing and hunting,"Aloof, Clownish, Dignified, Independent, Happy",10,13,26,55,11.5
 3,,African Hunting Dog,44,66,https://cdn2.thedogapi.com/images/rkiByec47.jpg,30,,A wild pack animal,"Wild, Hardworking, Dutiful",11,11,,55,11
