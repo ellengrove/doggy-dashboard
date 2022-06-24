@@ -1,5 +1,5 @@
 CREATE TABLE doggy_info (
-id INT PRIMARY KEY,
+id_doggy INT PRIMARY KEY,
 breed_group VARCHAR,
 name VARCHAR,
 weight_lower DEC,
@@ -16,16 +16,16 @@ avg_weight DEC,
 avg_life DEC);
 
 CREATE TABLE origins (
-index INT,
-rank VARCHAR,
+row_index INT,
+breed_rank VARCHAR,
 origin VARCHAR,
 lat_unadj DEC,
 lng_unadj DEC,
 lat DEC,
 lng DEC,
 name VARCHAR,
-id INT,
-FOREIGN KEY (id) REFERENCES doggy_info(id));
+id_doggy INT,
+FOREIGN KEY (id_doggy) REFERENCES doggy_info(id_doggy));
 
 
 
