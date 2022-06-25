@@ -38,7 +38,7 @@ function createMap(markers) {
 }
 
 
-d3.json("/api/top_breeds").then(function (response) {
+d3.json('/api/top_breeds').then(function (response) {
     console.log(response)
 
     var pawIcon = L.icon({
@@ -50,10 +50,14 @@ d3.json("/api/top_breeds").then(function (response) {
 
     var markers = []
     for (let i = 0; i < response.length; i++) {
+        var popupContent = `<div><center><img src="${response[i].image_url}" class=popup-img width="180" height=auto></center> <center>
+        <h6>${response[i].name}</h6></center> <br> <center><h7>${response[i].origin}</h7></center><hr> </div`;
         var marker = L.marker([response[i].lat,response[i].lng],{
             icon: pawIcon
         })
-        .bindPopup(`${response[i].name} <hr> ${response[i].origin} `)
+        .bindPopup(popupContent, {
+            maxWidth : 560
+        });
         
         markers.push(marker)
 

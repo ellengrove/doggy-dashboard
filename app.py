@@ -49,6 +49,10 @@ def welcome():
     """List API routes"""
     return render_template('index.html')
 
+@app.route("/map.html")
+def map_test():
+    return render_template('map.html')
+
 @app.route('/api/doggy_dash')
 def dog_data():
 
