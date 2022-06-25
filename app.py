@@ -53,6 +53,11 @@ def welcome():
 def map_test():
     return render_template('map.html')
 
+@app.route("/index.html")
+def index_test():
+    return render_template('index.html')
+
+
 @app.route('/api/doggy_dash')
 def dog_data():
 
