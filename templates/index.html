@@ -22,6 +22,8 @@
 
 <body>
 
+  <section>
+<!-- Naviagtion -->
   <nav class="navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
     <div class="container-fluid">
       <a class="navbar-text" href="map.html">Click here to Meet the Dog World!</a>
@@ -30,65 +32,177 @@
       </button>
     </div>
   </nav>
+
+<!-- Hero Banner -->
   <div class="DogHero bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white">
-  <h1 class="display-1">Doggy Dashboard</h1>
-</div>
+    <h1 class="display-1">Doggy Dashboard</h1>
+  </div>
   <div class="container grass">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h3>Select a dog breed to better understand their background!</h3>
+      <div class="col jumbotron text-center">
+        <h1>Select a dog breed to better understand their background!</h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="well">
-          <h5>Dog Breed</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 text-center">
-        <h5>Image Here</h5>
-        <div id="img">
-          <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center">
-        <h5>Breed Group vs Height</h5>
-        <div id="avg-heigth">
-        </div>
-      </div>
-      <div class="col-lg-4 text-center">
-        <h5>Life Expectancy vs Height</h5>
-        <div id="life-expec">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div id="Personality" class="col-md-6 text-center">
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-          <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header text-dark">Personality</div>
-            <div class="card-body">
-              <h5 class="card-title text-dark"></h5>
+</section>
+
+    <section class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 offset-md-4 text-center">
+            <div class="well">
+              <h3>Dog Breed</h3>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6 text-center">
-        <h5>Avg weight Here</h5>
-        <div id="avg-weight">
+
+      <div class="row">
+        <div class="col">
+          <br>
+          <br>
+          <div id="break">
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-header">Bred For</div>
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-header">Personality</div>
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <div id="break">
+            </div>
+          </div>
+        </div>
+
+  </section>
+
+<!-- carousel-->
+      <section class="dogpic">
+        <div class="container">
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/169A8/production/_120248529_gettyimages-157037529.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Stanley</h1>
+                  <h2> Gives the best nose boops. 11/10 Best Boy.</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.shopify.com/s/files/1/0103/3784/5303/files/Dog_ball_throwers_body_1.jpg?v=1600424688" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Wriggly</h1>
+                  <h2>Always brings back more balls than asked. 12/10 Goodest Girl.</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://www.akc.org/wp-content/uploads/2017/11/Cairn-Terrier-sitting-in-the-grass.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Theo</h1>
+                  <h2>Looks like a Teddy Bear. 15/11 Goodest Boy.</h2>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <br>
+            <div id="break">
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- PLOTLY GRAPHS-->
+<section>
+        <div class="row">
+          <div class="col">
+            <br>
+            <br>
+            <div id="break">
+            </div>
+          </div>
+        </div>
+
+        <div class="row plotly">
+          <div class="col">
+            <h5></h5>
+            <div id="life-expec">
+            </div>
+          </div>
+          <div class="col">
+            <h5></h5>
+            <div id="avg-heigth">
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-xs-6">
+              <h5></h5>
+              <div id="avg-weight">
+              </div>
+            </div>
+          </div>
+          </div>
+    </section>
+
+<!-- APEXCHART GRAPH-->
+<section>
+          <div class="row">
+            <div class="text-center">
+    <h2>Weight Range</h2>
+            </div>
+            <div class="col d-flex justify-content-center">
+              <div id="weight-range"></div>
+            </div>
+          </div>
+</section>
 
     <!-- Leaflet js -- might not need to be in 'index.html' file if we have separate web page for leaflet map -->
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 
     <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- apex charts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <!-- Plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
