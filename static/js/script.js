@@ -3,16 +3,17 @@
 
 url = `https://api.thedogapi.com/v1/breeds`
 
-d3.json(url).then(function(data) {
+
+d3.json('/api/doggy_dash').then(function(data) {
   // height
   var height = data[1].height.imperial;
   // breed group
   var breedGroup = data[1].breed_group;
-  // weight
+  // // weight
   var weight = data[1].weight.imperial;
-  // life span
+  // // life span
   var lifeSpan = data[1].life_span;
-  // dog name
+  // // dog name
   var names = data[1].name;
 
   // *****DROP DOWN*******
