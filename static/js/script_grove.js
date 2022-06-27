@@ -1,6 +1,3 @@
-// define the URL Link
-// REMEMBER CHANGE THE URL AND THE VAR ELEMENTS NOT TO PULL FROM THE API LINK!!!!!
-
 // *****DROP DOWN MENU*******
 d3.json('/api/doggy_dash').then(function(data) {
 
@@ -19,12 +16,14 @@ function init(breed) {
 }
 init();
 
-  // ***BAR PLOT***
+// PERSONALITY BOX UPDATE
 function optionChanged(dropChange) {
     d3.json('/api/doggy_dash').then(function(data) {
+    
 
         // clear all text in boxes displaying bred for/temperament info
-        d3.selectAll('p').remove(); 
+        d3.selectAll('p').remove();
+        
         let dog = data.filter(i => i.name === dropChange);
         var personality = dog[0].temperament.split(',')
         let temperamentBox = d3.select("#Personality");
@@ -33,17 +32,30 @@ function optionChanged(dropChange) {
         for (let i = 0; i < personality.length;i++) {
             temperamentBox.append("p").text(`${personality[i]}`)
         } 
-      
-        var bred_for = dog[0].bred_for.split(',')
+
+        var bred_for = dog[0].bred_for.split(',');
         let bredforBox = d3.select("#bred-for");
+
+        var image_url = dog[0].image_url.split(',');
+        let imageBox = d3.select("#image");  
+        imageBox.selectAll('img').remove();
+
         // populate bred for box
         for (let i = 0; i < bred_for.length;i++) {
             bredforBox.append("p").text(`${bred_for[i]}`)
         }
-        
+    
         // collect all data of same breed group
         var subset = data.filter(b => b.breed_group === dog[0].breed_group)  
-        
+
+        // populate the image
+        for (let i = 0; i < image_url.length;i++) {
+            imageBox.append("img").attr('src', image_url[i]).attr('width', 500).attr('height', 400);
+        }
+
+
+      // ***BAR PLOT***
+
         // make colors array for bar chart
         var barColors = []
         for (let i = 0; i < subset.length;i++) {
@@ -51,7 +63,7 @@ function optionChanged(dropChange) {
                 barColors.push('#f1df22')
             }
             else barColors.push('#519dae')
-        }
+        };
 
         let trace1 = {
         x: subset.map(d => d.name),
@@ -93,8 +105,8 @@ function optionChanged(dropChange) {
             else 
                 markerColors.push('#519dae')
                 markerSize.push(6)
-        }
-        console.log(markerSize)
+        };
+        // console.log(markerSize)
 
         // ***SCATTER PLOT***
         let trace2 = {
@@ -173,7 +185,8 @@ function optionChanged(dropChange) {
         chart: {
           height: 600,
           width: 900,
-          type: 'rangeBar'
+          type: 'rangeBar',
+          background: '#fff'
         },
         plotOptions: {
               bar: {
@@ -184,16 +197,21 @@ function optionChanged(dropChange) {
           data: [{
               x: dog[0].name,
               y: [dog[0].weight_lower, dog[0].weight_upper],
-          }],  
+          }],
             yaxis: {
                 min: 500,
                 max: 200,
-                },   
-          
-        }]
-      }
+                },    
+        }],
+      };
       var chart = new ApexCharts(document.querySelector("#weight-range"), options);
       chart.render();
-
+      chart.updateSeries([{
+        data: [{
+          x: dog[0].name,
+          y: [dog[0].weight_lower, dog[0].weight_upper],
+        }, 
+    ]
+      }])
   })
 }

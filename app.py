@@ -65,7 +65,7 @@ def dog_data():
 
     """Return a list of passenger data including the name, age, and sex of each passenger"""
     # Query all passengers
-    results = session.query(Doggy.name, Doggy.breed_group, Doggy.avg_height, Doggy.bred_for, Doggy.avg_weight, Doggy.avg_life, Doggy.temperament, Doggy.weight_lower, Doggy.weight_upper, Doggy.height_lower, Doggy.height_upper, Doggy.life_span_lower, Doggy.life_span_upper).all()
+    results = session.query(Doggy.name, Doggy.breed_group, Doggy.avg_height, Doggy.bred_for, Doggy.avg_weight, Doggy.avg_life, Doggy.temperament, Doggy.weight_lower, Doggy.weight_upper,  Doggy.image_url, Doggy.height_lower, Doggy.height_upper, Doggy.life_span_lower, Doggy.life_span_upper).all()
 
     session.close()
 
@@ -78,7 +78,7 @@ def dog_data():
 
     # Create a dictionary from the row data and append to a list of all_passengers
     all_dogs = []
-    for name, breed_group, avg_height, bred_for, avg_weight, avg_life, temperament, weight_lower, weight_upper, height_lower, height_upper, life_span_lower, life_span_upper  in results:
+    for name, breed_group, avg_height, bred_for, avg_weight, avg_life, temperament, weight_lower, weight_upper, image_url, height_lower, height_upper, life_span_lower, life_span_upper  in results:
         doggy_dict = {}
         doggy_dict["name"] = name
         doggy_dict["breed_group"] = breed_group
@@ -93,6 +93,7 @@ def dog_data():
         doggy_dict["height_upper"] = catchNulls(height_upper)
         doggy_dict["life_span_lower"] = catchNulls(life_span_lower)
         doggy_dict["life_span_upper"] = catchNulls(life_span_upper)
+        doggy_dict["image_url"] = image_url
         
         all_dogs.append(doggy_dict)
 
