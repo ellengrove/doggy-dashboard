@@ -130,7 +130,7 @@ function optionChanged(dropChange) {
 
         // Apply title to the layout
         let layout2 = {
-        title: "Life Expectancy versus Heigth",
+        title: "Life Expectancy versus Height",
         width: 500,
         height: 500,
         xaxis: {
