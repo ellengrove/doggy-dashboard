@@ -4,7 +4,7 @@
 
 ## Background:
 
-Dogs are known as man's best friend. Taking this into account, we have put together a dashboard of over 100 dogs based on things like personality, what each dog is bred for, and other important traits. Our dashboard provides a snapshot of information for dogs across the planet just to give both dog owners and potential dog owners an idea of the pros and cons of each dog. The information displayed as charts and graphs to better help those that are using the dashboard to quickly read and interpret information.   
+Dogs are known as man's best friend. Taking this into account, we have put together a dashboard of over 100 dogs based on things like personality, what each dog is bred for, and other important traits. Our dashboard provides a snapshot of information for dogs across the planet to give both dog owners and potential dog owners an idea of the pros and cons of each dog. The information displayed as charts and graphs to better help those that are using the dashboard to quickly read and interpret information.   
 
 
 
