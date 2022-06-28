@@ -21,6 +21,10 @@ Zach Meader, Anne Pizzini, Joshua Yesufu, Ellen Grove
 
 Dog information compiled using Petfinder API: https://www.petfinder.com/developers/v2/docs/
 
+TheDogAPI: https://docs.thedogapi.com/api-reference/breeds/breeds-list
+
+Google Maps API
+
 ## Table of Contents:
 
 1. [ Pull and Clean Data. ](#petfind)
@@ -38,13 +42,13 @@ What you will find in this section are screenshots of part of the JSON file from
 
 **Petfinder API:**
 
-![Petfinder_API](/static/Images/petfinder_json.PNG)
+![Petfinder_API](./static/Images/petfinder_json.PNG)
 
 
 
 **Cleaned Data CSV:**
 
-![cleaned_csv](/static/Images/csvfile_for_db.PNG)
+![cleaned_csv](./static/Images/csvfile_for_db.PNG)
 
 
 <a name="post"></a>
@@ -54,12 +58,12 @@ The database is where the dashboard pulls all of its information regarding the d
 
 **doggy_info database:**
 
-![doggy_db1](/static/Images/doggy_info_db.PNG)
+![doggy_db1](./static/Images/doggy_info_db.PNG)
 
 
 **origins database:**
 
-![doggy_db2](/static/Images/breed_origin_db.PNG)
+![doggy_db2](./static/Images/breed_origin_db.PNG)
 
 
 
@@ -68,25 +72,25 @@ The database is where the dashboard pulls all of its information regarding the d
 
 Once the Postgres database was created on each local machine, a connection needed to be made between the doggy_db and JavaScript. To do this, we created an application using Flask to create a connection to the database and save each table through `automap_base()`. Additionally, multiple routes were created for our html files along with transforming the data from a table format into Json. This was completed by querying the proper data via `session.query` and then appending each element to a list which becomes available from the route strings, `/api/doggy_dash` and `/api/top_breeds`.
 
-![Flask_API](/static/Images/apppy.png)
+![Flask_API](./static/Images/apppy.png)
 
 <a name="doggy_html"></a>
 ## 4. Doggy Dashboard/HTML
 
 To create the dashboard, we had to design the layout of each element which was completed through bootstrap. A navigation bar was created to access the map along with a hero banner to display the lovely group photo of dogs. Beneath that, a carousel was added to add more photos of dogs and their ranking by the team. Lastly, rows and columns were created for each graph to have a specific position among the dashboard along with a drop down that allows the user to access the facts for each type of breed. 
 
-![Group_Dog](/static/Images/Banner.jpg)
+![Group_Dog](./static/Images/Banner.jpg)
 
-![Carousel](/static/Images/Carousel.jpg)
+![Carousel](./static/Images/Carousel.jpg)
 
 <a name="doggy_js"></a>
 ## 5. Doggy Dashboard/JS
 
 Once the flask application is active, the data is accessed via D3. The first step we took to incorporate a user active interface was through a drop-down menu which was created by setting up a ‘for loop’ and appending each name from the data. Once the drop-down options have been pushed, an `optionChanged` function was created for each graph / visualization to update once the user has selected a new dog. One of the charts created is a Plotly bar plot that highlights the current dog and compares the height to different breed groups. Additionally, a scatter plot was created to also highlight the current dog vs. other breeds based on their life expectancy vs. their height. Furthermore, there is a gauge chart showing the average weight for that specific dog. Lastly, there is also a chart, using the ApexCharts library, that displays the weight range of the dog. The ApexCharts library was used to add more visualization options from which to work. 
 
-![Dash_1](/static/Images/Dash_1.png)
+![Dash_1](./static/Images/Dash_1.png)
 
-![Dash_2](/static/Images/Dash_2.png)
+![Dash_2](./static/Images/Dash_2.png)
 
 <a name="world"></a>
 ## 6. Doggy Map
