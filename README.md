@@ -36,13 +36,13 @@ Dog information compiled using Petfinder API: https://www.petfinder.com/develope
 
 What you will find in this section are screenshots of part of the JSON file from the Petfinder's API and a part of the cleaned data set that was used as our main database. In order to convert the Petfinder API into a dataframe that would be compatible to PostgresSQL, we had to use python libraries such CSV, OS, Path, and RE. Sections like weight and lifespan had a range of numbers and these numbers were strings in the API, therefore we split the range into two categorie(lower and upper) and later converted these numbers into an integer or float. After cleaning the data we converted it into a CSV file that could be imported to PostgresSQL to be used as a database.
 
-Petfinder API:
+**Petfinder API:**
 
 ![Petfinder_API](/static/Images/petfinder_json.PNG)
 
 
 
-Cleaned Data CSV:
+**Cleaned Data CSV:**
 
 ![cleaned_csv](/static/Images/csvfile_for_db.PNG)
 
@@ -52,12 +52,12 @@ Cleaned Data CSV:
 
 The database is where the dashboard pulls all of its information regarding the dogs such as height, weight, temerament, etc. We created two databases for our dashboard one for information regarding each dog breed called doggy_info and one for our leaflet map called origins. The databases are linked together with a foreign key for the dog ID's so that the leaflet map could reference both the doggy_info database and the origins database in order pull the information requested. Below you will find screenshots for each database.
 
-doggy_info database:
+**doggy_info database:**
 
 ![doggy_db1](/static/Images/doggy_info_db.PNG)
 
 
-origins database:
+**origins database:**
 
 ![doggy_db2](/static/Images/breed_origin_db.PNG)
 
