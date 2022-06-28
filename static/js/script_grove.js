@@ -125,11 +125,21 @@ function optionChanged(dropChange) {
 
         // Apply title to the layout
         let layout2 = {
-        title: "Life Expectancy versus Height",
+        title: "Life Expectancy versus Heigth",
         width: 500,
         height: 500,
-        xaxis: {range: [0, 20]},
-        yaxis: {range: [0, 35]}
+        xaxis: {
+                range: [0, 20],
+                title: {
+                    text: "Life Span"
+                }
+            },
+        yaxis: {
+                range: [0, 35],
+                title : {
+                    text: "Avg. Height"
+                }
+            }
         };
 
         // Render the plot
