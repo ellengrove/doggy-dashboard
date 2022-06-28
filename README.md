@@ -38,9 +38,13 @@ What you will find in this section are screenshots of part of the JSON file from
 
 Petfinder API:
 
+![Petfinder_API](/static/Images/petfinder_json.PNG)
+
+
 
 Cleaned Data CSV:
 
+![cleaned_csv](/static/Images/csvfile_for_db.PNG)
 
 
 <a name="post"></a>
@@ -50,8 +54,12 @@ The database is where the dashboard pulls all of its information regarding the d
 
 doggy_info database:
 
+![doggy_db1](/static/Images/doggy_info_db.PNG)
+
 
 origins database:
+
+![doggy_db2](/static/Images/breed_origin_db.PNG)
 
 
 
