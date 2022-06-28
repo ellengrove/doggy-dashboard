@@ -89,7 +89,11 @@ function optionChanged(dropChange) {
                 text : `Breed Group: ${dog[0].breed_group}`
             }
         },
-        yaxis: {title: {text: 'Avg. Height (Inches)'}}
+        yaxis: {
+            title: {
+                text: 'Avg. Height (Inches)'
+            }
+        }
         };
 
         // Render the plot
